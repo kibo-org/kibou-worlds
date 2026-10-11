@@ -24,8 +24,11 @@ are included. A fresh Git history will be checked before publication.
 - [x] English/Japanese contribution instructions and license/asset inventory
 - [x] CI configuration: read-only contents, no credentials persisted, no production secrets or deployments
 
-Full new-history and author-policy scans must also pass after committing and
-before pushing. Publication uses a fresh repository, not a rewritten Website clone.
+- [x] Initial new-history scan (root commit `f4319b6`): zero Gitleaks findings
+- [x] Author and committer email policy passed for the complete new history
+
+Repeat both history checks after any further commit and before pushing.
+Publication uses a fresh repository, not a rewritten Website clone.
 
 ## Unperformed Checks
 
