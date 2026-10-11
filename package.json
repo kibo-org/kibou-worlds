@@ -1,0 +1,29 @@
+{
+  "name": "kibou-worlds",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "vite --host localhost --strictPort",
+    "preview": "vite preview --host localhost --strictPort",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "npm run typecheck && vite build",
+    "check:privacy": "node scripts/check-public-boundary.mjs",
+    "check:authors": "node scripts/check-public-authors.mjs",
+    "check": "npm run check:privacy && npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": { "react": "19.2.6", "react-dom": "19.2.6" },
+  "devDependencies": {
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "jsdom": "26.1.0",
+    "typescript": "5.9.3",
+    "vite": "6.4.3",
+    "vitest": "4.1.11"
+  }
+}

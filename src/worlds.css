@@ -1,0 +1,55 @@
+.worlds { --world-ink: #203f3d; color: var(--world-ink); background: #f7f9f8; padding: 28px 28px 0; letter-spacing: 0; }
+.worlds *, .worlds *::before, .worlds *::after { box-sizing: border-box; }
+.world-header, .world-toolbar, .world-workspace, .world-comparison, .world-run-status, .world-footer { max-width: 1400px; margin-inline: auto; }
+.world-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 24px; }
+.worlds .world-kicker { font-size: 11px; font-weight: 700; margin: 0 0 8px; color: #507573; }
+.worlds h1 { font-size: 40px; line-height: 1.2; margin: 0 0 8px; letter-spacing: 0; }
+.worlds p { margin: 0; line-height: 1.7; }.worlds h2 { font-size: 17px; margin: 0 0 16px; line-height: 1.5; }
+.world-status { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 12px; }
+.world-status > span:last-child { display: block; width: 100%; text-align: right; font-size: 10px; color: #657977; }
+.world-live { background: #9ba8a7; width: 7px; height: 7px; border-radius: 50%; }.world-live.active { background: #26755c; }
+.world-toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; border-block: 1px solid #d4dfdb; padding: 12px 0; }
+.worlds button, .worlds select, .worlds input { font: inherit; color: inherit; border: 1px solid #b9ceca; background: #fff; border-radius: 5px; min-height: 44px; padding: 9px 14px; }
+.worlds button { cursor: pointer; font-size: 13px; font-weight: 600; }.worlds button:hover { background: #e4f0eb; }.worlds button:disabled { cursor: not-allowed; opacity: .5; }
+.worlds button.world-primary { color: #fff; background: #286958; border-color: #286958; }.worlds button.world-primary:hover { background: #1c5243; }
+.worlds :focus-visible { outline: 3px solid #bb4b75; outline-offset: 3px; }
+.world-command-group, .world-speed { display: flex; gap: 6px; }.world-speed { margin-left: auto; }
+.world-speed button { min-width: 44px; padding-inline: 10px; }.worlds [aria-pressed=true] { background: #d9ede5; border-color: #286958; }
+.world-workspace { display: grid; grid-template-columns: minmax(0, 1fr) 270px; border-bottom: 1px solid #d4dfdb; }
+.world-stage { min-width: 0; }.world-stage-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 18px 18px 0; background: #c8edf1; font-size: 10px; }
+.world-stage-top strong { font-size: 18px; }.world-stage-top strong span { font-size: 11px; font-weight: 400; }
+.world-scene { position: relative; width: 100%; aspect-ratio: 1.8; background: #c8edf1; overflow: hidden; }
+.world-scene canvas { display: block; width: 100%; height: 100%; }.world-place { position: absolute; transform: translateX(-50%); pointer-events: none; font-size: 11px; font-weight: 600; color: #294c41; }
+.world-canvas-error { position: absolute; inset: 20% 10%; font-size: 14px; background: #fff; padding: 20px; }
+.world-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid #d4dfdb; }
+.world-metrics > div { padding: 18px 20px; border-right: 1px solid #d4dfdb; }.world-metrics > div:last-child { border: 0; }
+.world-metrics span { display: block; font-size: 11px; color: #55716b; }.world-metrics strong { font-size: 27px; display: block; margin-top: 5px; }.world-metrics small { font-size: 13px; font-weight: 400; }
+.world-agent-strip { display: flex; gap: 7px; overflow-x: auto; padding: 15px 12px; }.world-agent-strip button { flex-shrink: 0; display: flex; align-items: center; gap: 7px; padding: 8px 10px; min-width: 68px; }
+.world-avatar { width: 9px; height: 13px; display: inline-block; background: #396d9c; border-top: 4px solid #edc9aa; }.agent-1 { background: #cb657c; }.agent-2 { background: #c5952f; }.agent-3 { background: #735b99; }
+.world-inspector { padding: 22px; border-left: 1px solid #d4dfdb; background: #fff; }
+.world-inspector label { display: grid; gap: 7px; font-size: 11px; margin-bottom: 16px; }.world-inspector select, .world-inspector input { width: 100%; min-width: 0; font-size: 12px; padding-inline: 9px; }
+.world-seed { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: end; }.world-seed label { margin: 0; }
+.world-agent-detail, .world-observations { border-top: 1px solid #d4dfdb; padding-top: 20px; margin-top: 20px; }
+.world-agent-detail h2 { font-size: 23px; }.world-agent-detail dl { margin: 0; font-size: 12px; }.world-agent-detail dl > div { display: flex; justify-content: space-between; gap: 12px; padding-block: 5px; }.world-agent-detail dd { margin: 0; }
+.world-observations ol { list-style: none; padding: 0; margin: 0; font-size: 11px; }.world-observations li { display: flex; gap: 10px; padding: 6px 0; }.world-observations li span { font-variant-numeric: tabular-nums; color: #6b817b; }.world-observations p { font-size: 12px; }
+.world-comparison { display: flex; gap: 24px; justify-content: space-between; padding-block: 26px; border-bottom: 1px solid #d4dfdb; }.world-comparison h2 { margin: 0; }.world-comparison > p { color: #6b817b; font-size: 12px; align-self: center; }
+.world-comparison-results { display: flex; gap: 28px; }.world-comparison-results > div { display: grid; gap: 4px; font-size: 11px; }.world-comparison-results strong { font-size: 24px; }.world-comparison-results small { color: #55716b; }
+.world-run-status { font-size: 11px; color: #657977; padding: 12px 0; }
+.world-footer { display: flex; align-items: start; justify-content: space-between; gap: 28px; padding: 24px 0 40px; }.world-footer p { font-size: 12px; max-width: 660px; color: #58716a; }.world-footer nav { display: flex; flex-wrap: wrap; gap: 12px 20px; font-size: 12px; }.world-footer a { color: #286958; min-height: 44px; display: inline-flex; align-items: center; }
+@media (min-width: 1600px) { .world-scene { aspect-ratio: 2.1; } }
+@media (max-width: 800px) {
+  .worlds { padding: 24px 16px 0; }.world-header { align-items: start; gap: 12px; }.worlds h1 { font-size: 30px; }.world-header p:not(.world-kicker) { font-size: 12px; }
+  .world-status { max-width: 100px; justify-content: end; }.world-status > span:last-child { font-size: 9px; }
+  .world-workspace { grid-template-columns: 1fr; }.world-inspector { border-left: 0; border-top: 1px solid #d4dfdb; display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; padding: 20px 16px; }.world-inspector > h2 { grid-column: 1 / -1; }.world-seed { grid-column: 1 / -1; }.world-agent-detail, .world-observations { min-width: 0; }
+  .world-scene { aspect-ratio: 1.25; }.world-command-group { flex: 1; }.world-command-group button { flex: 1; padding-inline: 9px; }.world-speed { margin-left: 0; }.world-metrics > div { padding: 14px 10px; }.world-metrics span { font-size: 10px; min-height: 28px; }.world-metrics strong { font-size: 23px; }
+  .world-comparison, .world-footer { flex-direction: column; gap: 16px; }.world-comparison-results { justify-content: space-between; }.world-comparison > p { align-self: start; }
+}
+@media (max-width: 380px) {
+  .world-header { flex-direction: column; }
+  .world-status { max-width: none; justify-content: start; }
+  .world-status > span:last-child { width: auto; }
+  .world-command-group { flex-basis: 100%; }
+  .world-command-group button { padding-inline: 6px; font-size: 12px; }
+  .world-inspector { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { .worlds *, .worlds *::before, .worlds *::after { scroll-behavior: auto; transition: none; animation: none; } }

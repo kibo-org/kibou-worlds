@@ -1,0 +1,16 @@
+name: Idea or question / アイデア・質問
+description: A beginner-friendly place for synthetic experiment ideas.
+body:
+  - type: markdown
+    attributes:
+      value: "Issues are public. Do not include personal information, credentials or private experiment files. / Issueは公開されます。個人情報や認証情報を書かないでください。"
+  - type: textarea
+    id: idea
+    attributes:
+      label: Idea or question / アイデア・質問
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Optional seed and reproduction steps / シードと再現手順（任意）
