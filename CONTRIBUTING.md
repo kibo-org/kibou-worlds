@@ -23,7 +23,9 @@ in GitHub Settings > Emails before committing; never post your private address.
 
 - Fictional data only. No personal profiles, real contact details, private URLs,
   credentials, exports from production or production account integrations.
-- No network calls, telemetry, code execution from uploads or external assets.
+- No browser network calls, telemetry, code execution from uploads or external assets.
+  Only the isolated local CLI may call the two fixed model endpoints with explicit
+  consent; no model credentials or paid calls are available in contribution CI.
 - New files require an update to `public-export.json` and maintainer review.
 - New dependencies and license/asset changes require explicit maintainer review.
 - Fork PR checks have read-only permissions and no production secrets. Workflow
@@ -31,6 +33,14 @@ in GitHub Settings > Emails before committing; never post your private address.
 - Contributors do not receive upstream write access. Maintainers review changes
   before merging; public contribution does not grant Website/backend access.
 - Record model assumptions and do not equate synthetic results with human behavior.
+
+## Share an Experiment
+
+Follow [the agent experiment guide](docs/AGENT_EXPERIMENTS.md), then submit a
+validated JSON file under `submissions/`. Separate observations, your interpretation
+and limitations. Results are self-reported, not certified model provenance. A
+separate Website PR is needed for Lab publication after maintainer review.
+Do not include raw reasoning, private logs, credentials or real-person information.
 
 Security findings belong in the repository's private vulnerability-reporting flow,
 not public Issues. If it is unavailable, contact a maintainer privately without

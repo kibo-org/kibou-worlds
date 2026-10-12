@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "experiment": "policy",
+  "id": "public-policy",
+  "title": "Tax and minimum provision during a fictional income shock",
+  "question": "How do no tax, equal dividends and targeted transfers change daily needs and reserves?",
+  "hypothesis": "Targeted transfers may protect low-productivity agents during the income shock.",
+  "rules": [
+    "no-tax",
+    "flat-tax",
+    "safety-net"
+  ],
+  "scenario": "drought",
+  "seed": 42,
+  "days": 24,
+  "population": 6,
+  "repeats": 2,
+  "provider": "rules",
+  "model": "deterministic-v1",
+  "budget": {
+    "maxCalls": 864,
+    "maxOutputTokens": 512,
+    "maxTotalTokens": 1000000,
+    "timeoutMs": 30000,
+    "maxRunMs": 1800000
+  }
+}

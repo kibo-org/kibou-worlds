@@ -10,10 +10,13 @@
     "preview": "vite preview --host localhost --strictPort",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:research": "node --test research/research.test.mjs research/providers.test.mjs research/social-engine.test.mjs",
+    "experiment": "node scripts/run-experiment.mjs",
+    "experiment:check": "node scripts/check-experiments.mjs",
     "build": "npm run typecheck && vite build",
     "check:privacy": "node scripts/check-public-boundary.mjs",
     "check:authors": "node scripts/check-public-authors.mjs",
-    "check": "npm run check:privacy && npm run typecheck && npm test && npm run build"
+    "check": "npm run check:privacy && npm run typecheck && npm test && npm run test:research && npm run experiment:check && npm run build"
   },
   "dependencies": { "react": "19.2.6", "react-dom": "19.2.6" },
   "devDependencies": {

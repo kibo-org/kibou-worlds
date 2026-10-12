@@ -6,6 +6,12 @@ What changes? Which synthetic scenario or user problem does it address?
 
 Seed, rules, scenario, fork tick, expected result:
 
+For agent experiments: engine/prompt version, provider and exact model snapshot,
+population, days, repeat seeds, budgets, reported usage and JSON submission file.
+Separate recorded observations from author interpretation and limitations.
+Never attach raw provider responses, private logs or credentials. Model provenance
+is self-reported; replay alone does not prove which provider was used.
+
 ## Verification
 
 - [ ] `npm run check` passed

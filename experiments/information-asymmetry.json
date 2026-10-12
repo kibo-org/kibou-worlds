@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "experiment": "information",
+  "id": "information-asymmetry",
+  "title": "Unequal information in a synthetic market",
+  "question": "How does unequal access to quality signals change inspection costs and net benefit?",
+  "hypothesis": "Transparent quality signals may reduce paid inspections and unfavorable purchases.",
+  "rules": [
+    "transparent",
+    "private-signals"
+  ],
+  "scenario": "steady",
+  "seed": 42,
+  "days": 24,
+  "population": 6,
+  "repeats": 2,
+  "provider": "rules",
+  "model": "deterministic-v1",
+  "budget": {
+    "maxCalls": 864,
+    "maxOutputTokens": 512,
+    "maxTotalTokens": 1000000,
+    "timeoutMs": 30000,
+    "maxRunMs": 1800000
+  }
+}

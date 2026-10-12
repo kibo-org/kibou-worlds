@@ -1,5 +1,26 @@
 # Pre-Publication Audit
 
+Historical record for the initial browser release, not verification of later changes.
+The new opt-in research CLI and submission path have code and test cases written
+but have NOT been simulated, tested or built locally for this update at the user's request.
+Static privacy checks have been performed separately, as recorded below.
+Re-run review and checks before publishing these changes; the checkmarks below do
+not apply to the new CLI. Browser network isolation is retained separately.
+
+## Research Update Review
+
+On 2026-10-11 the expanded publication allowlist contains 52 files. Static public
+boundary checks passed: no personal contact details, private machine paths,
+literal network addresses or credential-like material were reported. Browser
+network restrictions remain separate from opt-in local model adapters. Synthetic
+housing, information and policy settings contain no real-member records.
+
+New tests cover replay, allocation limits, hidden information, transfers and
+engine-specific model actions, but were not run locally. No simulation, build,
+browser session or real model request was started. The PR must disclose those gaps.
+Static checks and secret scans are not a guarantee of complete anonymity or safety.
+Repeat the staged-source and full-history secret scan before publication.
+
 Worktree review date: 2026-10-11. No publication-blocking privacy finding was
 identified in the reviewed files. This is not a penetration-test claim or a
 guarantee that every future contribution is safe.

@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "id": "resource-sharing",
+  "title": "Resource sharing in a fictional village",
+  "question": "How do ownership rules affect daily needs in this toy society?",
+  "hypothesis": "Pooling resources may reduce unmet needs during a drought.",
+  "seed": 42,
+  "days": 24,
+  "population": 6,
+  "scenario": "drought",
+  "rules": ["commons", "private", "guarantee"],
+  "repeats": 2,
+  "provider": "rules",
+  "model": "deterministic-v1",
+  "budget": {
+    "maxCalls": 864,
+    "maxOutputTokens": 256,
+    "maxTotalTokens": 1000000,
+    "timeoutMs": 30000,
+    "maxRunMs": 1800000
+  }
+}

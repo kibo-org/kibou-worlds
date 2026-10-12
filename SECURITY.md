@@ -16,4 +16,11 @@ ignore that file, configure equivalent HTTP headers. `frame-ancestors` requires
 an HTTP response header and is not provided by the HTML meta policy alone.
 
 Never claim IP anonymity: hosting providers and intentionally visited sites can
-observe network addresses. This code does not collect, store or forward them.
+observe network addresses. The browser does not collect, store or forward them.
+The opt-in local research CLI sends synthetic observations to a fixed model
+provider; that provider sees normal request metadata and the caller's network
+address. Keys remain in environment variables and are not part of the result.
+Do not run unreviewed Fork code with credentials. Budgets cannot undo charges for
+timed-out requests; configure provider-side spending limits. CI never calls models.
+Replay and privacy tripwires do not prove model authenticity or fully anonymize
+arbitrary prose. Maintainers manually review every public experiment bundle.

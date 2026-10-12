@@ -13,6 +13,7 @@ export default defineConfig({
   preview: { host: 'localhost', strictPort: true },
   build: { sourcemap: false, target: 'es2022' },
   test: {
+    include: ['tests/**/*.test.ts', 'tests/**/*.test.tsx'],
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
     restoreMocks: true,
