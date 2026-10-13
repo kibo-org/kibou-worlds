@@ -52,7 +52,8 @@ for (const file of files) {
       if (ts.isIdentifier(node) && blockedRuntime.has(node.text) &&
           !(node.text === 'fetch' && file === 'research/providers.mjs')) fail(file, 'unreviewed research capability');
       if (node.kind === ts.SyntaxKind.ImportKeyword || node.kind === ts.SyntaxKind.ImportMeta) fail(file, 'dynamic research import');
-      if (ts.isImportDeclaration(node) && !['./engine.mjs', './protocol.mjs', './registry.mjs', './social-engine.mjs', 'node:net'].includes(node.moduleSpecifier.text)) fail(file, 'unreviewed research import');
+      if (ts.isImportDeclaration(node) && !['./engine.mjs', './protocol.mjs', './registry.mjs', './social-engine.mjs', 'node:net'].includes(node.moduleSpecifier.text) &&
+          !(file === 'research/reproduction.mjs' && node.moduleSpecifier.text === 'node:crypto')) fail(file, 'unreviewed research import');
       if (ts.isStringLiteralLike(node) && /^https?:\/\//i.test(node.text) &&
           !(file === 'research/providers.mjs' && ['https://api.openai.com/v1/responses', 'https://api.anthropic.com/v1/messages'].includes(node.text))) fail(file, 'unreviewed model endpoint');
       ts.forEachChild(node, visitResearch);

@@ -69,6 +69,12 @@ Availability and structured-output support depend on your chosen model.
 
 ## Reproduction and Interpretation
 
+To contribute without editing code, follow [Reproduction](REPRODUCTION.md).
+Keep model/settings unchanged, use a new public experiment identity, and distinguish
+recorded replay, fresh same-settings runs and new-seed extensions. Read every seed,
+not only the most favorable result. The offline comparison command produces a local
+digest-linked summary without network calls.
+
 Each bundle records complete settings, system prompt/version, all ordered
 proposals, clamped executed actions, per-day metrics and token/call usage. Repeat
 seeds are base seed plus repeat index. Rules replay exactly; LLM inference need

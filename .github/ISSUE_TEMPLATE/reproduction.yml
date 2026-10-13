@@ -1,0 +1,46 @@
+name: Reproduction or counterexample / 再現・反例
+description: Contribute observations without changing code / コード変更なしで観察を共有
+title: "[Reproduction] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use fictional data only. Never paste API keys, personal details, local paths,
+        raw model dialogue or hidden reasoning. Read docs/REPRODUCTION.md first.
+        架空のデータのみ。キー、個人情報、生のモデル対話、隠れた推論は貼らないでください。
+  - type: input
+    id: original
+    attributes:
+      label: Original experiment digest / 元のダイジェスト
+      placeholder: "sha256:..."
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: What did you do? / 実施内容
+      options:
+        - Recorded-action replay / 記録済みの行動の再生
+        - Fresh run with the same settings / 同じ設定で新たに実行
+        - New base seed, same other settings / 基本シードのみ変更
+        - Changed assumptions, separate experiment / 前提変更・別実験
+    validations:
+      required: true
+  - type: textarea
+    id: observations
+    attributes:
+      label: Observations across all seeds / 全シードの観察
+      description: State differences, sample size and possible alternative explanations. Do not claim a toy simulation proves a real-world conclusion.
+    validations:
+      required: true
+  - type: textarea
+    id: interpretation
+    attributes:
+      label: Interpretation and limits / 考察と限界
+    validations:
+      required: true
+  - type: input
+    id: submission
+    attributes:
+      label: Optional checked bundle PR / 検証済みJSONのPR（任意）
+      description: An Issue alone does not add a result to Lab. Maintainers review the actual bundle separately.

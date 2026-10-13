@@ -61,6 +61,11 @@ The canvas is procedural and does not load external images or fonts.
 
 ## Run Your First Research Experiment
 
+You can also contribute without changing code: follow the
+[reproduction guide](docs/REPRODUCTION.md) to rerun reviewed settings, compare seeds,
+and submit observations, counterexamples and limitations. `npm run reproduce:check`
+compares two bundles offline; it does not call a model or publish anything.
+
 These are instructions for a future local run, not a record of checks performed
 by maintainers for this update.
 
@@ -244,7 +249,8 @@ KIBOU Worldsは架空の小さな社会を使い、問いを検討する研究�
 JSONだけをPRへ提出し、運営の確認後にWebsite側の別PRでLabへ掲載します。
 実名、連絡先、認証情報、生のモデル応答は提出しないでください。
 API費用が発生する場合があり、実験結果は現実社会の予測を意味しません。
-今回の研究実装はローカルで未実行・未テストです。
+研究エンジン・再現比較のローカルテストは架空のデータと模擬アダプターで確認しました。
+実モデルAPI、ブラウザの実機受け入れ、本番公開は別途確認が必要です。
 
 詳しくは[日本語開発ガイド](docs/DEVELOPMENT.ja.md)と
 [社会実験の定義](docs/SOCIAL_EXPERIMENTS.md)をご覧ください。
