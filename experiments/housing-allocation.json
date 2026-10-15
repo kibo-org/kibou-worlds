@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "experiment": "housing",
+  "id": "housing-allocation",
+  "title": "Housing access under three fictional allocation rules",
+  "question": "How do daily housing access and waiting differ under lottery, need priority and bidding?",
+  "hypothesis": "Need priority may reduce repeated exclusion compared with daily bidding.",
+  "rules": [
+    "lottery",
+    "need-priority",
+    "bid-priority"
+  ],
+  "scenario": "drought",
+  "seed": 42,
+  "days": 24,
+  "population": 6,
+  "repeats": 2,
+  "provider": "rules",
+  "model": "deterministic-v1",
+  "budget": {
+    "maxCalls": 864,
+    "maxOutputTokens": 512,
+    "maxTotalTokens": 1000000,
+    "timeoutMs": 30000,
+    "maxRunMs": 1800000
+  }
+}

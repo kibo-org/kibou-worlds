@@ -6,7 +6,7 @@ import ts from 'typescript';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const approved = new Set(JSON.parse(await readFile(join(root, 'public-export.json'), 'utf8')).files);
-const ignored = new Set(['.git', 'node_modules', 'dist', 'coverage', '.vite']);
+const ignored = new Set(['.git', 'node_modules', 'dist', 'coverage', '.vite', 'results']);
 const fail = (file, reason) => { throw new Error(`Public boundary: ${file}: ${reason}`); };
 const files = [];
 async function walk(directory) {
@@ -22,7 +22,9 @@ async function walk(directory) {
   }
 }
 await walk(root);
-for (const file of files) if (!approved.has(file)) fail(file, 'not in the reviewed file allowlist');
+for (const file of files) {
+  if (!approved.has(file) && !/^submissions\/[a-z][a-z0-9-]{2,59}\.json$/.test(file)) fail(file, 'not in the reviewed file allowlist');
+}
 for (const file of approved) if (!files.includes(file)) fail(file, 'allowlisted file missing');
 const blockedRuntime = new Set([
   'fetch', 'XMLHttpRequest', 'WebSocket', 'EventSource', 'sendBeacon',
@@ -33,6 +35,7 @@ const blockedRuntime = new Set([
 const publicLinks = new Set([
   'https://github.com/kibo-org/kibou-worlds/blob/main/CONTRIBUTING.md',
   'https://github.com/kibo-org/kibou-worlds/issues',
+  'https://github.com/kibo-org/kibou-worlds/blob/main/docs/AGENT_EXPERIMENTS.md',
 ]);
 for (const file of files) {
   const text = await readFile(join(root, file), 'utf8');
@@ -43,6 +46,20 @@ for (const file of files) {
   if (candidates.some(match => isIP(match[0]))) fail(file, 'literal IP address');
   if (/\b(?:gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AKIA[A-Z0-9]{16}|sk-(?:ant-)?[A-Za-z0-9_-]{20,})\b|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/.test(text)) fail(file, 'credential-like material');
   if (/\beyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\b|postgres(?:ql)?:\/\/[^\s]+:[^\s]+@/i.test(text)) fail(file, 'token or database credential');
+  if (file.startsWith('research/') && file.endsWith('.mjs') && !file.endsWith('.test.mjs')) {
+    const source = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
+    function visitResearch(node) {
+      if (ts.isIdentifier(node) && blockedRuntime.has(node.text) &&
+          !(node.text === 'fetch' && file === 'research/providers.mjs')) fail(file, 'unreviewed research capability');
+      if (node.kind === ts.SyntaxKind.ImportKeyword || node.kind === ts.SyntaxKind.ImportMeta) fail(file, 'dynamic research import');
+      if (ts.isImportDeclaration(node) && !['./engine.mjs', './protocol.mjs', './registry.mjs', './social-engine.mjs', 'node:net'].includes(node.moduleSpecifier.text) &&
+          !(file === 'research/reproduction.mjs' && node.moduleSpecifier.text === 'node:crypto')) fail(file, 'unreviewed research import');
+      if (ts.isStringLiteralLike(node) && /^https?:\/\//i.test(node.text) &&
+          !(file === 'research/providers.mjs' && ['https://api.openai.com/v1/responses', 'https://api.anthropic.com/v1/messages'].includes(node.text))) fail(file, 'unreviewed model endpoint');
+      ts.forEachChild(node, visitResearch);
+    }
+    visitResearch(source);
+  }
   if (!file.startsWith('src/')) continue;
   if (/https?:\/\//i.test(text) && !file.endsWith('.tsx')) fail(file, 'runtime network configuration');
   if (file.endsWith('.css') && /@import|url\s*\(/i.test(text)) fail(file, 'unreviewed media/font source');

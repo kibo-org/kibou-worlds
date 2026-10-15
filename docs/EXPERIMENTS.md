@@ -1,5 +1,8 @@
 # Experiment 001: Resource Ownership
 
+This page describes the browser engine only. For the separately versioned local
+agent engine, model adapters and submissions, see [Agent Experiments](AGENT_EXPERIMENTS.md).
+
 Engine `rules-v1` is a deterministic toy model, not an LLM-based simulation.
 Choose an unsigned 32-bit seed; default 42. Twelve steps make one day; the run
 ends after 100 days. Processing order is shuffled by a seeded generator.
